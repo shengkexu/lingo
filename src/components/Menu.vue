@@ -7,12 +7,7 @@
             -->
             <input type="checkbox" />
             
-            <!--
-            Some spans to act as a hamburger.
-            
-            They are acting like a real hamburger,
-            not that McDonalds stuff.
-            -->
+            <!--Some spans to act as a hamburger.-->
             <span></span>
             <span></span>
             <span></span>
@@ -29,11 +24,17 @@
             <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
             </ul>
         </div>
+        
     </nav>
 </template>
 <script>
 export default {
-    name: 'Menu'
+    name: 'Menu',
+    data(){
+        return{
+
+        }
+    }
 }
 </script>
 <style scoped>
