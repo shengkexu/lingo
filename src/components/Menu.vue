@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav id="mainNav">
       <div id="menuToggle" v-on:click="toggleMenu">
           <span></span>
           <span></span>
@@ -31,7 +31,6 @@ export default {
       toggleMenu: function (){
         if(this.isActive == false){
           this.isActive = true
-
         }else{
           this.isActive = false
         }
@@ -39,6 +38,7 @@ export default {
       }
     },
     mounted(){
+      console.log(this.isActive)
     },
 }
 </script>
