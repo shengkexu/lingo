@@ -1,22 +1,23 @@
 <template>
     <nav>
-        <div id="menuToggle" v-on:click="toggleMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+      <div id="menuToggle" v-on:click="toggleMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+      <div class="menuMain">
+        <img id="triangleWhite" src="../assets/triangleWhite1.png" alt="triangleWhite1">
+        <img id="triangleBlack" src="../assets/triangleBlack1.png" alt="triangleBlack1">
+        <ul id="menu">
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Info</li></a>
+            <a href="#"><li>Contact</li></a>
+            <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+        </ul>
+      </div>
     </nav>
-    <div class="menuMain">
-      <img id="triangleWhite" src="../assets/triangleWhite1.png" alt="triangleWhite1">
-      <img id="triangleBlack" src="../assets/triangleBlack1.png" alt="triangleBlack1">
-      <ul id="menu">
-          <a href="#"><li>Home</li></a>
-          <a href="#"><li>About</li></a>
-          <a href="#"><li>Info</li></a>
-          <a href="#"><li>Contact</li></a>
-          <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
-      </ul>
-    </div>
+
 </template>
 <script>
 export default {
