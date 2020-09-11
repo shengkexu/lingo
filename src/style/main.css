@@ -1,20 +1,26 @@
 body{
-    background: green;
+    /* background: green; */
 }
 
 #app{
     width: 100vw;
     overflow: hidden;
+    position: relative;
 }
 
+
+#mainNav{
+  /* position: fixed; */
+  background: red;
+  width: 100vw;
+}
 
 #menuToggle
 {
   display: block;
-  position: relative;
-  float: right;
-  margin-top: 50px;
-  margin-right: 50px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -52,8 +58,8 @@ body{
   transform-origin: 4px 0px;
 
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+              /* background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), */
+              /* opacity 0.55s ease; */
 }
 
 #menuToggle span:first-child
@@ -70,29 +76,29 @@ body{
  * Transform all the slices of hamburger
  * into a crossmark.
  */
-#menuToggle input:checked ~ span
+/* #menuToggle input:checked ~ span
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323;
-}
+} */
 
 /*
  * But let's hide the middle one.
  */
-#menuToggle input:checked ~ span:nth-last-child(3)
+/* #menuToggle input:checked ~ span:nth-last-child(3)
 {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
-}
+} */
 
 /*
  * Ohyeah and the last one should go the other direction
  */
-#menuToggle input:checked ~ span:nth-last-child(2)
+/* #menuToggle input:checked ~ span:nth-last-child(2)
 {
   transform: rotate(-45deg) translate(0, -1px);
-}
+} */
 
 /*
  * Make this absolute positioned
@@ -101,62 +107,73 @@ body{
 #menu
 {
   position: absolute;
-  width: 300px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
-
-  background: #ededed;
+  z-index: 3;
+  /* width: 300px; */
+  /* background: #ededed; */
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
-
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
-
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  top: 172px;
+  right: 30px;
+  text-align: right;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+#menu a{
+  list-style: none;
+  text-decoration: none;
+  color: #000000;
 }
 
 #menu li
 {
-  padding: 10px 0;
+  padding: 20px 0;
   font-size: 22px;
 }
 
 /*
  * And let's slide it in from the left
  */
-#menuToggle input:checked ~ ul
+/* #menuToggle input:checked ~ ul
 {
   transform: none;
-}
+} */
 
 .menuMain{
-  position: relative;
+  position: fixed;
   /* margin-top: -3px; */
   padding-top: 0px;
+  width: 100vw;
+  height: auto;
 }
 
-.menuMain img{
+.menuBack{
   position: absolute;
   top: 0;
+  z-index: 2;
+}
+
+.logo{
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 35px;
+  width: 17%;
 }
 
 #triangleWhite{
   left: 0px;
   width: 100%;
-  height: auto;
+  height: 100vh;
+  transition: 1s all cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
 #triangleBlack{
   left: 0px;
-  width: 100%;
-  height: auto;
-}
-
-nav{
-  margin-top: 0px;
-  padding-top: 0px;
+  width: 80%;
+  height: 100vh;
+  transition: 1s all cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
 
