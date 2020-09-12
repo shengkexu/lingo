@@ -5,7 +5,7 @@
           <span></span>
           <span></span>
       </div>
-      <div class="menuMain">
+      <!-- <div class="menuMain">
         <img class="menuBack" id="triangleWhite" :class="{'moveWhite': !isActive}" src="../assets/triangleWhite1.png" alt="triangleWhite1">
         <img class="menuBack" id="triangleBlack" :class="{'moveBlack': !isActive}" src="../assets/triangleBlack1.png" alt="triangleBlack1">
         <img class="logo" src="../assets/lingoo.png" alt="lingoo">
@@ -20,7 +20,7 @@
             <img src="../assets/addressIcon.png" alt="">
           </div>
         </div>
-      </div>
+      </div> -->
     <!-- </nav> -->
 
 </template>

@@ -1,7 +1,12 @@
 <template>
     <Menu/>
-    <div class="word">
-        <p>Lively  Innovative  Nactive  Go  Outbraving</p>
+    <div class="caseCon">
+        <div class="test1" ref="box" :class="{'changePosition' : isRotate}">
+
+        </div>
+        <div class="button1" :class="{'changeColor': isColor}" v-on:click="changePosition">
+
+        </div>
     </div>
 </template>
 
@@ -11,6 +16,27 @@ export default {
     name: 'Home',
     components: {
     Menu,
+  },
+  data(){
+    return{
+      isRotate: false,
+      isColor: false
+    }
+  },
+  methods:{
+    changePosition: function(){
+      if(this.isRotate == true){
+        console.log('antialiased')
+      }else{
+        this.isRotate = true
+        this.isColor = true
+        setTimeout(()=>{
+          // this.$refs.box.style.transition = 'none'
+          this.isRotate = false
+          this.isColor = false
+        },1500)
+      }
+    }
   }
 }
 </script>
