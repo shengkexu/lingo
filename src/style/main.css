@@ -1,3 +1,8 @@
+@font-face{
+  font-family: aliFontM;
+  src: url('/assets/fonts/阿里巴巴普惠体-Medium.otf')
+}
+
 body{
     /* background: green; */
 }
@@ -21,8 +26,8 @@ body{
   display: block;
   position: fixed;
   top: 20px;
-  right: 30px;
-  z-index: 1;
+  right: 20px;
+  z-index: 3;
   -webkit-user-select: none;
   user-select: none;
   /* background: red; */
@@ -46,19 +51,19 @@ body{
 #menuToggle span
 {
   display: block;
-  width: 33px;
+  width: 30px;
   height: 4px;
   margin-bottom: 5px;
   position: relative;
 
-  background: #cdcdcd;
+  background: #333;
   border-radius: 3px;
 
   z-index: 1;
 
   transform-origin: 4px 0px;
 
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  transition: transform 1s cubic-bezier(0.77,0.2,0.05,1.0),
               /* background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), */
               /* opacity 0.55s ease; */
 }
@@ -71,67 +76,139 @@ body{
 #menuToggle span:nth-last-child(2)
 {
   transform-origin: 0% 100%;
+  width: 23px;
 }
 
-/*
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-/* #menuToggle input:checked ~ span
-{
+.ham1{
   opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
-} */
-
-/*
- * But let's hide the middle one.
- */
-/* #menuToggle input:checked ~ span:nth-last-child(3)
-{
+  transform: rotate(45deg) translate(1.5px, -3px);
+}
+.ham2{
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
-} */
-
-/*
- * Ohyeah and the last one should go the other direction
- */
-/* #menuToggle input:checked ~ span:nth-last-child(2)
-{
+}
+.ham3{
   transform: rotate(-45deg) translate(0, -1px);
-} */
+}
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-#menu
+
+.menuCon{
+  position: fixed;
+  width: 100vw;
+  /* background: yellow; */
+}
+.blueCircle{
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background: #cdcdcd;
+  float: right;
+  margin-top: -150px;
+  margin-right: -150px;
+  transition: 0.8s all cubic-bezier(.85,0,.21,1);
+}
+
+.yellowCircle{
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background: #eee;
+  float: right;
+  margin-top: -150px;
+  margin-right: -150px;
+  transition: 1s all cubic-bezier(.85,0,.21,1);
+}
+.redCircle{
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background: #ffffff;
+  float: right;
+  margin-top: -150px;
+  margin-right: -150px;
+  transition: 1.2s all cubic-bezier(.85,0,.21,1);
+}
+
+.blueCircleScale{
+  transform: scale(15);
+}
+.yellowCircleScale{
+  transform: scale(15);
+}
+.redCircleScale{
+  transform: scale(15);
+}
+
+.menu
 {
+  /* display: none;
+  opacity: 0; */
+  top: -100vh;
   position: absolute;
   z-index: 3;
-  /* width: 300px; */
+  width: 100vw;
+  height: 100vh;
+  padding-top:40%;
+  text-align: center;
   /* background: #ededed; */
   list-style-type: none;
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
   /* to stop flickering of text in safari */
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  top: 172px;
-  right: 30px;
-  text-align: right;
+  transition: 0.3s all cubic-bezier(.85,0,.21,1);
+  transition-delay: 0.5s;
   font-family: 'Noto Sans SC', sans-serif;
 }
 
-#menu a{
+.menu a{
   list-style: none;
   text-decoration: none;
   color: #000000;
+  /* transition: all 0.5s cubic-bezier(0.77,0.2,0.05,1.0); */
 }
 
-#menu li
-{
-  padding: 20px 0;
-  font-size: 22px;
+.menuWord{
+  opacity: 0;
+  padding: 30px 0;
+  font-size: 16px;
+  transition: all 0.8s cubic-bezier(.85,0,.21,1);
+  transition-delay: 0.8s;
+  font-family: aliFontM;
 }
+
+.menuWord1{
+  margin-left: -60px;
+}
+.menuWord2{
+  margin-right: -60px;
+}
+.menuWord3{
+  margin-left: -60px;
+}
+.menuWord4{
+  margin-right: -60px;
+}
+
+.menuWordChange1{
+  opacity: 1;
+  margin-left: 0px;
+}
+
+.menuWordChange2{
+  opacity: 1;
+  margin-right: 0px;
+}
+
+.menuWordChange3{
+  opacity: 1;
+  margin-left: 0px;
+}
+
+.menuWordChange4{
+  opacity: 1;
+  margin-right: 0px;
+}
+
+
 
 /*
  * And let's slide it in from the left
