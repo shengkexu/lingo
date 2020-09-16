@@ -304,7 +304,7 @@ body{
 
 
 .changePosition{
-  animation: slide 1.5s cubic-bezier(.85,0,.21,1);
+  animation: slide 1s cubic-bezier(.85,0,.21,1);
 }
 
 @keyframes slide {

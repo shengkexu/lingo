@@ -2,7 +2,7 @@
     <Menu/>
     <div class="caseCon">
         <div class="test1" :class="{'changePosition' : isRotate}">
-          <p>{{thumbArray[1].name}}</p>
+          <p>{{thumbArray[currentIndex].name}}</p>
         </div>
         <div class="button1" :class="{'changeColor': isColor}" v-on:click="changePosition">
 
@@ -10,10 +10,8 @@
 
         <div class="thumbCon">
           <div class="thumbConS">
-            <img class="thumbImg" v-for="(thumb, index) in thumbArray" :src="thumb.url" :alt="thumb.id" :key="index">
+            <img class="thumbImg" :style="thumbStyle" v-for="(thumb, index) in thumbArray" :src="thumb.url" :alt="thumb.id" :key="index" @click="clickThumb(index)">
           </div>
-
-          <!-- <img src="../assets/caseThumb/xibeilogo.png" alt="xibei"> -->
         </div>
     </div>
 </template>
@@ -35,6 +33,9 @@ export default {
     return{
       isRotate: false,
       isColor: false,
+      thumbStyle: {},
+      currentIndex: 2,
+      screenwidth: document.body.clientWidth,
       thumbArray: [
         {
           id: '1',
@@ -85,12 +86,39 @@ export default {
         setTimeout(()=>{
           this.isRotate = false
           this.isColor = false
+        },1000)
+      }
+    },
+    clickThumb: function(index){
+      console.log(index)
+      this.currentIndex = index
+      var currentWidth = this.screenwidth/2 - 50 - index*100 + 'px'
+      console.log(currentWidth)
+      this.thumbStyle = {
+        transition: '0.5s all ease',
+        transform: "translate(" + currentWidth + ", 0)"
+      }
+      
+      if(this.isRotate == true){
+        console.log('antialiased')
+      }else{
+        this.isRotate = true
+        this.isColor = true
+        setTimeout(()=>{
+          this.isRotate = false
+          this.isColor = false
         },1500)
       }
     }
   },
   mounted(){
-    console.log(this.thumbArray[0].name)
+    var currentWidth = this.screenwidth/2 - 50 - this.currentIndex*100 + 'px'
+    console.log(currentWidth)
+    this.thumbStyle = {
+      transition: '0.5s all ease',
+      transform: "translate(" + currentWidth + ", 0)"
+    }
+
   }
 }
 </script>
