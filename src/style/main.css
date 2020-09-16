@@ -265,6 +265,11 @@ body{
   padding-top: 1px; /* 解决test1添加margin-top后这个元素跟着下移的问题 */
   overflow: hidden;
 }
+.ani{
+  animation: fadeInUp;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+}
 .thumbCon{
   width: 100vw;
   overflow: hidden;

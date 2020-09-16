@@ -2,8 +2,10 @@
     <Menu/>
     <div class="caseCon">
         <div class="test1" :class="{'changePosition' : isRotate}">
-          <p>{{thumbArray[currentIndex].name}}</p>
+
         </div>
+        <p :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].name}}</p>
+        <!-- <p :class="ani">{{thumbArray[currentContentIndex].name}}</p> -->
         <div class="button1" :class="{'changeColor': isColor}" v-on:click="changePosition">
 
         </div>
@@ -35,6 +37,7 @@ export default {
       isColor: false,
       thumbStyle: {},
       currentIndex: 2,
+      currentContentIndex: 0,
       screenwidth: document.body.clientWidth,
       thumbArray: [
         {
@@ -90,28 +93,38 @@ export default {
       }
     },
     clickThumb: function(index){
-      console.log(index)
-      this.currentIndex = index
-      var currentWidth = this.screenwidth/2 - 50 - index*100 + 'px'
-      console.log(currentWidth)
-      this.thumbStyle = {
-        transition: '0.5s all ease',
-        transform: "translate(" + currentWidth + ", 0)"
-      }
-      
-      if(this.isRotate == true){
-        console.log('antialiased')
+      if(index == this.currentIndex){
+        this.isRotate = false
+        // console.log('all right')
       }else{
-        this.isRotate = true
-        this.isColor = true
+        console.log(index)
+        this.currentIndex = index
+        var currentWidth = this.screenwidth/2 - 50 - index*100 + 'px'
+        console.log(currentWidth)
+        this.thumbStyle = {
+          transition: '0.5s all ease',
+          transform: "translate(" + currentWidth + ", 0)"
+        }
         setTimeout(()=>{
-          this.isRotate = false
-          this.isColor = false
-        },1500)
+          this.currentContentIndex = this.currentIndex
+        },500)
+
+
+        if(this.isRotate == true){
+          console.log('antialiased')
+        }else{
+          this.isRotate = true
+          this.isColor = true
+          setTimeout(()=>{
+            this.isRotate = false
+            this.isColor = false
+          },1500)
+        }
       }
     }
   },
   mounted(){
+    this.currentContentIndex = this.currentIndex
     var currentWidth = this.screenwidth/2 - 50 - this.currentIndex*100 + 'px'
     console.log(currentWidth)
     this.thumbStyle = {
