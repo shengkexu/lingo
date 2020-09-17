@@ -283,6 +283,10 @@ body{
   width: 100px;
 }
 
+.gifImg{
+width: 100%; 
+}
+
 .test1{
   margin: auto;
   margin-top: 150px;

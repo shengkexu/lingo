@@ -6,9 +6,10 @@
         </div>
         <p :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].name}}</p>
         <!-- <p :class="ani">{{thumbArray[currentContentIndex].name}}</p> -->
-        <div class="button1" :class="{'changeColor': isColor}" v-on:click="changePosition">
+        <!-- <div class="button1" :class="{'changeColor': isColor}" v-on:click="changePosition">
 
-        </div>
+        </div> -->
+        <img src="../assets/design.gif" alt="design" class="gifImg">
 
         <div class="thumbCon">
           <div class="thumbConS">
