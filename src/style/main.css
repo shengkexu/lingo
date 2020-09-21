@@ -1,7 +1,32 @@
-@font-face{
-  font-family: aliFontM;
-  src: url('/assets/fonts/阿里巴巴普惠体-Medium.otf')
+@font-face {
+  font-family: 'iconfont';  /* project id 2081736 */
+  src: url('//at.alicdn.com/t/font_2081736_l6pnc7gdpia.eot');
+  src: url('//at.alicdn.com/t/font_2081736_l6pnc7gdpia.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2081736_l6pnc7gdpia.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2081736_l6pnc7gdpia.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2081736_l6pnc7gdpia.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2081736_l6pnc7gdpia.svg#iconfont') format('svg');
 }
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size: 16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face{
+  font-family: 'aliFontM';
+  src: url('../assets/fonts/ali-Medium.otf')
+}
+
+@font-face{
+  font-family: 'lackFontR';
+  src: url('../assets/fonts/lack-Regular.otf')
+}
+
+
 
 body{
     /* background: green; */
@@ -27,7 +52,7 @@ body{
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 3;
+  z-index: 201;
   -webkit-user-select: none;
   user-select: none;
   /* background: red; */
@@ -95,6 +120,7 @@ body{
 .menuCon{
   position: fixed;
   width: 100vw;
+  z-index: 200;
   /* background: yellow; */
 }
 .blueCircle{
@@ -145,7 +171,7 @@ body{
   opacity: 0; */
   top: -100vh;
   position: absolute;
-  z-index: 3;
+  z-index: 11;
   width: 100vw;
   height: 100vh;
   padding-top:40%;
@@ -229,7 +255,7 @@ body{
 .menuBack{
   position: absolute;
   top: 0;
-  z-index: 2;
+  z-index: 30;
 }
 
 /* .logo{
@@ -264,42 +290,158 @@ body{
   /* background: yellow; */
   padding-top: 1px; /* 解决test1添加margin-top后这个元素跟着下移的问题 */
   overflow: hidden;
+  position: relative;
+}
+.logo{
+  position: fixed;
+  width: 180px;
+  height: 45px;
+  background: yellow;
+  left: 50%;
+  top: 10px;
+  transform: translate(-50%, 0);
 }
 .ani{
   animation: fadeInUp;
   animation-duration: 1s;
   animation-delay: 0.5s;
 }
+
 .thumbCon{
+  position: absolute;
   width: 100vw;
   overflow: hidden;
+  /* background: url('../assets/thumbBack.png') repeat;
+  background-size: contain; */
+  height: auto;
+  margin-top: 10px;
+}
+.thumbCon::after {
+  content: "";
+  background: url('../assets/thumbBack.png') repeat;
+  background-size: contain;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  height: auto;
+}
+.thumbTitle{
+  font-size: 8px;
+  font-family: lackFontR;
+  color: #AAAAAA;
+  padding-top: 8px;
+  height: auto;
+}
+.thumbArrow{
+  margin-left: 5px;
+  font-size: 6px;
+}
+.thumbLine{
+  width: 1px;
+  height: 15px;
+  background: #FC4719;
+  margin: auto;
+  /* margin-top: 6px; */
 }
 .thumbConS{
+  /* position: fixed; */
   display: flex;
   justify-content: flex-start;
   width: 1920px;
+  margin-top: 5px;
 }
 .thumbImg{
   width: 100px;
 }
 
 .gifImg{
-width: 100%; 
+width: 100%;
+}
+
+.bigShowCon{
+  /* margin: auto; */
+  margin-top: 75px;
+  width: 100vw;
+  height: 439px;
+  /* background: blue; */
+  position: relative;
 }
 
 .test1{
-  margin: auto;
-  margin-top: 150px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 200px;
   height: 300px;
-  background: red;
+  background: white;
+  z-index: 8;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
   /* transition: 1s all cubic-bezier(.85,0,.21,1); */
+
+}
+.caseNumWordConP{
+  margin-top: 12px;
+  margin-right: 12px;
+  font-family: lackFontR;
+  font-size: 8px;
+  float: right;
+  color: #FC4719;
+}
+.caseNumWord{
+  margin-left: 8px;
+  margin-right: 5px;
+}
+.caseNumWordBlack{
+  color: #AAAAAA;
+}
+.caseLogo{
+  width: 48px;
+  height: auto;
+  clear: right;
+}
+.caseDesc{
+  margin-bottom: 8px;
+  margin-left: 12px;
+  float: left;
+  font-size: 8px;
+  color: #AAAAAA;
+  font-family: lackFontR;
+}
+.caseImg{
+  width: 350px;
+  height: 440px;
+  position: absolute;
+  z-index: 7;
+  left: 50%;
+  top: 50%;
+  margin-left: -175px;
+  margin-top: -220px;
   opacity: 1;
 }
-.test1 p{
-  height: 30px;
-  font-size: 30px;
+.imgBack{
+  width: 251px;
+  height: 363px;
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: #C70000;
+  transition: background-color 1.5s;
 }
+.caseTitle{
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: aliFontM;
+}
+
 .button1{
   margin: auto;
   margin-top: 30px;

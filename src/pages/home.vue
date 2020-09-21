@@ -1,20 +1,39 @@
 <template>
     <Menu/>
     <div class="caseCon">
-        <div class="test1" :class="{'changePosition' : isRotate}">
+      <div class="logo">
 
+      </div>
+      <div class="bigShowCon">
+        <div class="test1">
+          <div class="caseConUpCon1">
+            <p class="caseNumWordConP">NO.<span :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].id}}</span><span class="caseNumWordBlack"><span class="caseNumWord">|</span>10</span></p>
+          </div>
+          <div class="caseConUpCon2">
+            <img class="caseLogo" :class="{'ani' : isRotate}" src="../assets/caseMain/vanke.png" alt="">
+          </div>
+          <div class="caseConUpCon3">
+            <p class="caseDesc" :class="{'ani' : isRotate}">2018 - mini program design</p>
+          </div>
         </div>
-        <p :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].name}}</p>
+        <img class="caseImg" src="../assets/caseMain/wankeMain.png" alt="" :class="{'changePosition' : isRotate}">
+        <div class="imgBack" ref="imgBack"></div>
+      </div>
+
+        <!-- <p :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].name}}</p> -->
         <!-- <p :class="ani">{{thumbArray[currentContentIndex].name}}</p> -->
         <!-- <div class="button1" :class="{'changeColor': isColor}" v-on:click="changePosition">
 
         </div> -->
-        <img src="../assets/design.gif" alt="design" class="gifImg">
-
+        <!-- <img src="../assets/design.gif" alt="design" class="gifImg"> -->
+        <p class="caseTitle" :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].name}}</p>
+        <p class="thumbTitle">View Detail<i class="iconfont thumbArrow">&#xe656;</i></p>
         <div class="thumbCon">
+          <div class="thumbLine"></div>
           <div class="thumbConS">
             <img class="thumbImg" :style="thumbStyle" v-for="(thumb, index) in thumbArray" :src="thumb.url" :alt="thumb.id" :key="index" @click="clickThumb(index)">
           </div>
+          <div class="thumbLine"></div>
         </div>
     </div>
 </template>
@@ -43,37 +62,37 @@ export default {
       thumbArray: [
         {
           id: '1',
-          name: 'case1',
+          name: '蒙牛',
           color: 'green',
           url: mengniu
         },
         {
           id: '2',
-          name: 'case2',
+          name: '粢喜',
           color: 'blue',
           url: cixi
         },
         {
           id: '3',
-          name: 'case3',
+          name: '西贝莜面村',
           color: 'yellow',
           url: xibei
         },
         {
           id: '4',
-          name: 'case4',
+          name: '万科',
           color: 'pink',
           url: wanke
         },
         {
           id: '5',
-          name: 'case5',
+          name: 'Silk',
           color: 'pink',
           url: silk
         },
         {
           id: '6',
-          name: 'case6',
+          name: '质心',
           color: 'pink',
           url: zhixin
         }
@@ -108,6 +127,7 @@ export default {
         }
         setTimeout(()=>{
           this.currentContentIndex = this.currentIndex
+          this.$refs.imgBack.style.background = this.thumbArray[this.currentContentIndex].color
         },500)
 
 
