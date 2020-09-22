@@ -50,8 +50,8 @@ body{
 {
   display: block;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 28px;
+  right: 18px;
   z-index: 201;
   -webkit-user-select: none;
   user-select: none;
@@ -76,8 +76,8 @@ body{
 #menuToggle span
 {
   display: block;
-  width: 30px;
-  height: 4px;
+  width: 20px;
+  height: 2px;
   margin-bottom: 5px;
   position: relative;
 
@@ -106,7 +106,7 @@ body{
 
 .ham1{
   opacity: 1;
-  transform: rotate(45deg) translate(1.5px, -3px);
+  transform: rotate(45deg) translate(2.5px, 0px);
 }
 .ham2{
   opacity: 0;
@@ -174,7 +174,7 @@ body{
   z-index: 11;
   width: 100vw;
   height: 100vh;
-  padding-top:40%;
+  /* padding-top: 120px; */
   text-align: center;
   /* background: #ededed; */
   list-style-type: none;
@@ -183,6 +183,9 @@ body{
   transition: 0.3s all cubic-bezier(.85,0,.21,1);
   transition-delay: 0.5s;
   font-family: 'Noto Sans SC', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .menu a{
@@ -191,11 +194,14 @@ body{
   color: #000000;
   /* transition: all 0.5s cubic-bezier(0.77,0.2,0.05,1.0); */
 }
+.menu ul{
+  margin-top: 70px;
+}
 
 .menuWord{
   opacity: 0;
-  padding: 30px 0;
-  font-size: 16px;
+  padding: 16px 0;
+  font-size: 22px;
   transition: all 0.8s cubic-bezier(.85,0,.21,1);
   transition-delay: 0.8s;
   font-family: aliFontM;
@@ -258,6 +264,26 @@ body{
   z-index: 30;
 }
 
+.menuImgCon{
+  margin-top: 80px;
+}
+
+.menuImg{
+  width: 84px;
+  height: 102px;
+}
+.menuInfoCon{
+  margin-bottom: 8px;
+}
+.menuAdress{
+  margin-bottom: 4px;
+  font-size: 8px;
+  color: #aaa;
+}
+.addressIcon{
+  font-size: 8px !important;
+}
+
 /* .logo{
   position: absolute;
   z-index: 2;
@@ -284,22 +310,27 @@ body{
 
 
 .caseCon{
-  margin-top: -1px; /* 解决test1添加margin-top后这个元素跟着下移的问题 */
   width: 100%;
   height: 100vh;
   /* background: yellow; */
-  padding-top: 1px; /* 解决test1添加margin-top后这个元素跟着下移的问题 */
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mainLogo{
+  margin-top: 16px;
+  width: 100px;
+  height: 46px;
 }
 .logo{
-  position: fixed;
   width: 180px;
   height: 45px;
-  background: yellow;
-  left: 50%;
-  top: 10px;
-  transform: translate(-50%, 0);
+  /* background: yellow; */
+  text-align: center;
+  /* transform: translate(-50%, 0); */
+  margin: 0 auto;
 }
 .ani{
   animation: fadeInUp;
@@ -308,15 +339,19 @@ body{
 }
 
 .thumbCon{
-  position: absolute;
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100vw;
   overflow: hidden;
   /* background: url('../assets/thumbBack.png') repeat;
   background-size: contain; */
-  height: auto;
+  height: 94px;
   margin-top: 10px;
+  background: url('../assets/thumbBacka.png') repeat;
 }
-.thumbCon::after {
+/* .thumbCon::after {
   content: "";
   background: url('../assets/thumbBack.png') repeat;
   background-size: contain;
@@ -327,8 +362,8 @@ body{
   right: 0;
   position: absolute;
   z-index: -1;
-  height: auto;
-}
+  height: 94px;
+} */
 .thumbTitle{
   font-size: 8px;
   font-family: lackFontR;
@@ -344,7 +379,7 @@ body{
   width: 1px;
   height: 15px;
   background: #FC4719;
-  margin: auto;
+  margin: 0 auto;
   /* margin-top: 6px; */
 }
 .thumbConS{
@@ -356,6 +391,7 @@ body{
 }
 .thumbImg{
   width: 100px;
+  height: 50px;
 }
 
 .gifImg{
@@ -364,10 +400,11 @@ width: 100%;
 
 .bigShowCon{
   /* margin: auto; */
-  margin-top: 75px;
+  /* margin-top: 75px; */
   width: 100vw;
   height: 439px;
   /* background: blue; */
+  margin-top: 25px;
   position: relative;
 }
 
@@ -440,6 +477,7 @@ width: 100%;
   margin-top: 10px;
   font-size: 20px;
   font-family: aliFontM;
+  color: #333333;
 }
 
 .button1{

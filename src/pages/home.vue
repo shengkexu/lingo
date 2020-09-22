@@ -2,50 +2,60 @@
     <Menu/>
     <div class="caseCon">
       <div class="logo">
-
+        <img class="mainLogo" src="../assets/menu/logo-f.png" alt="logo">
       </div>
       <div class="bigShowCon">
         <div class="test1">
           <div class="caseConUpCon1">
-            <p class="caseNumWordConP">NO.<span :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].id}}</span><span class="caseNumWordBlack"><span class="caseNumWord">|</span>10</span></p>
+            <p class="caseNumWordConP">NO.<span :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].id}}</span><span class="caseNumWordBlack"><span class="caseNumWord">|</span>6</span></p>
           </div>
           <div class="caseConUpCon2">
-            <img class="caseLogo" :class="{'ani' : isRotate}" src="../assets/caseMain/vanke.png" alt="">
+            <img class="caseLogo" :class="{'ani' : isRotate}" :src="thumbArray[currentContentIndex].logoB" alt="">
           </div>
           <div class="caseConUpCon3">
-            <p class="caseDesc" :class="{'ani' : isRotate}">2018 - mini program design</p>
+            <p class="caseDesc" :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].desc}}</p>
           </div>
         </div>
-        <img class="caseImg" src="../assets/caseMain/wankeMain.png" alt="" :class="{'changePosition' : isRotate}">
+        <img class="caseImg" :src="thumbArray[currentContentIndex].bcImg" alt="bcImg" :class="{'changePosition' : isRotate}">
         <div class="imgBack" ref="imgBack"></div>
       </div>
 
-        <!-- <p :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].name}}</p> -->
-        <!-- <p :class="ani">{{thumbArray[currentContentIndex].name}}</p> -->
-        <!-- <div class="button1" :class="{'changeColor': isColor}" v-on:click="changePosition">
-
-        </div> -->
         <!-- <img src="../assets/design.gif" alt="design" class="gifImg"> -->
+      <div class="caseTitleCon">
         <p class="caseTitle" :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].name}}</p>
         <p class="thumbTitle">View Detail<i class="iconfont thumbArrow">&#xe656;</i></p>
-        <div class="thumbCon">
-          <div class="thumbLine"></div>
-          <div class="thumbConS">
-            <img class="thumbImg" :style="thumbStyle" v-for="(thumb, index) in thumbArray" :src="thumb.url" :alt="thumb.id" :key="index" @click="clickThumb(index)">
-          </div>
-          <div class="thumbLine"></div>
+      </div>
+
+      <div class="thumbCon">
+        <div class="thumbLine"></div>
+        <div class="thumbConS">
+          <img class="thumbImg" :style="thumbStyle" v-for="(thumb, index) in thumbArray" :src="thumb.url" :alt="thumb.id" :key="index" @click="clickThumb(index)">
         </div>
+        <div class="thumbLine"></div>
+      </div>
     </div>
 </template>
 
 <script>
 import Menu from '../components/Menu.vue'
 import xibei from '../assets/caseThumb/xibeilogo.png'
+import xibeiMain from '../assets/caseMain/xibei/xibeiMain.png'
+import xibeiB from '../assets/caseMain/xibei/xibei.png'
 import mengniu from '../assets/caseThumb/menglogo.png'
+import mengniuMain from '../assets/caseMain/mengniu/mengniuMain.png'
+import mengniuB from '../assets/caseMain/mengniu/mengniu.png'
 import cixi from '../assets/caseThumb/cixilogo.png'
+import cixiMain from '../assets/caseMain/cixi/cixiMain.png'
+import cixiB from '../assets/caseMain/cixi/cixi.png'
 import silk from '../assets/caseThumb/silklogo.png'
-import wanke from '../assets/caseThumb/wankelogo.png'
+import silkMain from '../assets/caseMain/silk/silkMain.png'
+import silkB from '../assets/caseMain/silk/silk.png'
+import vanke from '../assets/caseThumb/vankelogo.png'
+import vankeMain from '../assets/caseMain/vanke/vankeMain.png'
+import vankeB from '../assets/caseMain/vanke/vanke.png'
 import zhixin from '../assets/caseThumb/zhixinlogo.png'
+import zhixinMain from '../assets/caseMain/zhixin/zhixinMain.png'
+import zhixinB from '../assets/caseMain/zhixin/zhixin.png'
 export default {
     name: 'Home',
     components: {
@@ -56,45 +66,118 @@ export default {
       isRotate: false,
       isColor: false,
       thumbStyle: {},
-      currentIndex: 2,
-      currentContentIndex: 0,
+      currentIndex: 8,
+      currentContentIndex: 8,
       screenwidth: document.body.clientWidth,
+      thumbArrayS: [],
       thumbArray: [
         {
           id: '1',
           name: '蒙牛',
-          color: 'green',
-          url: mengniu
+          color: '#00AA0F',
+          url: mengniu,
+          bcImg: mengniuMain,
+          logoB: mengniuB,
+          desc: '2019 - 包装设计&线上游戏视觉',
         },
         {
           id: '2',
           name: '粢喜',
-          color: 'blue',
-          url: cixi
+          color: '#CC6000',
+          url: cixi,
+          bcImg: cixiMain,
+          logoB: cixiB,
+          desc: '2017 - vis视觉识别系统',
         },
         {
           id: '3',
           name: '西贝莜面村',
-          color: 'yellow',
-          url: xibei
+          color: '#C70000',
+          url: xibei,
+          bcImg: xibeiMain,
+          logoB: xibeiB,
+          desc: '2019 - 小程序设计'
         },
         {
           id: '4',
           name: '万科',
-          color: 'pink',
-          url: wanke
+          color: '#C70007',
+          url: vanke,
+          bcImg: vankeMain,
+          logoB: vankeB,
+          desc: '2019 - vis视觉识别系统',
         },
         {
           id: '5',
           name: 'Silk',
-          color: 'pink',
-          url: silk
+          color: '#0064D3',
+          url: silk,
+          bcImg: silkMain,
+          logoB: silkB,
+          desc: '2019 - 包装设计',
         },
         {
           id: '6',
           name: '质心',
-          color: 'pink',
-          url: zhixin
+          color: '#000000',
+          url: zhixin,
+          bcImg: zhixinMain,
+          logoB: zhixinB,
+          desc: '2019 - vis视觉识别系统'
+        },
+        {
+          id: '1',
+          name: '蒙牛',
+          color: '#00AA0F',
+          url: mengniu,
+          bcImg: mengniuMain,
+          logoB: mengniuB,
+          desc: '2019 - 包装设计&线上游戏视觉',
+        },
+        {
+          id: '2',
+          name: '粢喜',
+          color: '#CC6000',
+          url: cixi,
+          bcImg: cixiMain,
+          logoB: cixiB,
+          desc: '2017 - vis视觉识别系统',
+        },
+        {
+          id: '3',
+          name: '西贝莜面村',
+          color: '#C70000',
+          url: xibei,
+          bcImg: xibeiMain,
+          logoB: xibeiB,
+          desc: '2019 - 小程序设计'
+        },
+        {
+          id: '4',
+          name: '万科',
+          color: '#C70007',
+          url: vanke,
+          bcImg: vankeMain,
+          logoB: vankeB,
+          desc: '2019 - vis视觉识别系统',
+        },
+        {
+          id: '5',
+          name: 'Silk',
+          color: '#0064D3',
+          url: silk,
+          bcImg: silkMain,
+          logoB: silkB,
+          desc: '2019 - 包装设计',
+        },
+        {
+          id: '6',
+          name: '质心',
+          color: '#000000',
+          url: zhixin,
+          bcImg: zhixinMain,
+          logoB: zhixinB,
+          desc: '2019 - vis视觉识别系统'
         }
       ]
     }
@@ -130,7 +213,6 @@ export default {
           this.$refs.imgBack.style.background = this.thumbArray[this.currentContentIndex].color
         },500)
 
-
         if(this.isRotate == true){
           console.log('antialiased')
         }else{
@@ -145,14 +227,31 @@ export default {
     }
   },
   mounted(){
-    this.currentContentIndex = this.currentIndex
-    var currentWidth = this.screenwidth/2 - 50 - this.currentIndex*100 + 'px'
+    const that = this
+    window.onresize = () => {
+      return (() => {
+        window.screenwidth = document.body.clientWidth
+        that.screenwidth = window.screenwidth
+      })()
+    }
+    // that.currentContentIndex = that.currentIndex
+    var currentWidth = that.screenwidth/2 - 50 - that.currentIndex*100 + 'px'
     console.log(currentWidth)
-    this.thumbStyle = {
+    that.thumbStyle = {
       transition: '0.5s all ease',
       transform: "translate(" + currentWidth + ", 0)"
     }
-
+  },
+  watch: {
+    screenwidth(val){
+      this.screenwidth = val
+      // console.log(this.screenwidth)
+      var currentWidth = val/2 - 50 - this.currentIndex*100 + 'px'
+      this.thumbStyle = {
+        transition: '0.5s all ease',
+        transform: "translate(" + currentWidth + ", 0)"
+      }
+    }
   }
 }
 </script>
