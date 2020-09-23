@@ -27,8 +27,6 @@
             <p class="menuAdress">京ICP证030173号-1</p>
           </div>
         </div>
-
-
       </div>
 
 </template>
@@ -70,14 +68,4 @@ export default {
 }
 </script>
 <style>
-/* .moveWhite{
-  left: 400px !important;
-  transition: 1s all cubic-bezier(0.77,0.2,0.05,1.0);
-}
-.moveBlack{
-  left: -300px !important;
-  transition: 1s all cubic-bezier(0.77,0.2,0.05,1.0);
-} */
-
-
 </style>
