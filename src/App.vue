@@ -4,21 +4,21 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <router-link to="/">asd</router-link>
     <router-link to="/case">case</router-link> -->
-    <Home/>
-    <!-- <router-view></router-view> -->
+    <!-- <Home/> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import Home from './pages/home.vue'
+//import Home from './pages/home.vue'
 // import Case from './pages/case.vue'
 
 export default {
   name: 'App',
   components: {
     //HelloWorld,
-    Home
+    //Home
   }
 }
 </script>

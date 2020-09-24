@@ -1,10 +1,10 @@
 <template>
     <Menu/>
-    <div class="caseCon">
+    <div class="caseCon" ref="homeCon">
       <div class="logo">
         <img class="mainLogo" src="../assets/menu/logo-f.png" alt="logo">
       </div>
-      <div class="bigShowCon">
+      <div class="bigShowCon" @click="gotoDetail()">
         <div class="test1">
           <div class="caseConUpCon1">
             <p class="caseNumWordConP">NO.<span :class="{'ani' : isRotate}">{{thumbArray[currentContentIndex].id}}</span><span class="caseNumWordBlack"><span class="caseNumWord">|</span>6</span></p>
@@ -68,7 +68,8 @@ export default {
       thumbStyle: {},
       currentIndex: 8,
       currentContentIndex: 8,
-      screenwidth: document.body.clientWidth,
+      screenWidth: document.body.clientWidth,
+      screenHeight: document.body.innerHeight,
       thumbArrayS: [],
       thumbArray: [
         {
@@ -202,7 +203,7 @@ export default {
       }else{
         console.log(index)
         this.currentIndex = index
-        var currentWidth = this.screenwidth/2 - 50 - index*100 + 'px'
+        var currentWidth = this.screenWidth/2 - 50 - index*100 + 'px'
         console.log(currentWidth)
         this.thumbStyle = {
           transition: '0.5s all ease',
@@ -224,33 +225,72 @@ export default {
           },1500)
         }
       }
+    },
+    onResize(){
+      this.screenHeight = window.innerHeight || document.body.innerHeight || document.documentElement.clientHeight
+      this.screenWidth = document.body.clientWidth
+    },
+    gotoDetail(){
+      this.$router.push({
+        path: `/case/${this.thumbArray[this.currentContentIndex].id}`
+      })
     }
   },
   mounted(){
-    const that = this
-    window.onresize = () => {
-      return (() => {
-        window.screenwidth = document.body.clientWidth
-        that.screenwidth = window.screenwidth
-      })()
-    }
+    // const that = this
+    // window.onresize = () => {
+    //   return (() => {
+    //     window.screenWidth = document.body.clientWidth
+    //     that.screenWidth = window.screenWidth
+    //     window.screenHeight = document.body.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    //     that.screenHeight = window.screenHeight
+    //   })()
+    // }
+    // console.log(window.screenWidth)
+    // that.$refs.homeCon.style.height = that.screenHeight
     // that.currentContentIndex = that.currentIndex
-    var currentWidth = that.screenwidth/2 - 50 - that.currentIndex*100 + 'px'
-    console.log(currentWidth)
-    that.thumbStyle = {
-      transition: '0.5s all ease',
-      transform: "translate(" + currentWidth + ", 0)"
-    }
+    // var currentWidth = that.screenWidth/2 - 50 - that.currentIndex*100 + 'px'
+    // console.log(currentWidth)
+    // that.thumbStyle = {
+    //   transition: '0.5s all ease',
+    //   transform: "translate(" + currentWidth + ", 0)"
+    // }
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+      this.currentContentIndex = this.currentIndex
+      var currentWidth = this.screenWidth/2 - 50 - this.currentIndex*100 + 'px'
+      this.thumbStyle = {
+        transition: '0.5s all ease',
+        transform: "translate(" + currentWidth + ", 0)"
+      }
+      this.screenHeight = window.innerHeight || document.body.innerHeight || document.documentElement.clientHeight
+
+      var heightString = (this.screenHeight).toString()
+      console.log(heightString)
+      this.$refs.homeCon.style.height = heightString + 'px'
+      //this.screenHeight = window.innerHeight || document.body.innerHeight || document.documentElement.clientHeight
+      //this.$refs.homeCon.style.height = this.screenHeight.toString()
+    })
+  },
+  beforeUnmount(){
+    window.removeEventListener('resize', this.onResize);
   },
   watch: {
-    screenwidth(val){
-      this.screenwidth = val
-      // console.log(this.screenwidth)
+    screenWidth(val){
+      this.screenWidth = val
+      // console.log(this.screenWidth)
       var currentWidth = val/2 - 50 - this.currentIndex*100 + 'px'
       this.thumbStyle = {
         transition: '0.5s all ease',
         transform: "translate(" + currentWidth + ", 0)"
       }
+    },
+    screenHeight(val){
+      this.screenHeight = val
+      var heightString = val.toString()
+      //console.log(heightString)
+      this.$refs.homeCon.style.height = heightString + 'px'
+      //console.log(val.toString())
     }
   }
 }

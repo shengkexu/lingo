@@ -284,31 +284,6 @@ body{
   font-size: 8px !important;
 }
 
-/* .logo{
-  position: absolute;
-  z-index: 2;
-  left: 20px;
-  top: 35px;
-  width: 17%;
-}
-
-#triangleWhite{
-  left: 0px;
-  width: 100%;
-  height: 100vh;
-  transition: 1s all cubic-bezier(0.77,0.2,0.05,1.0);
-}
-
-#triangleBlack{
-  left: 0px;
-  width: 80%;
-  height: 100vh;
-  transition: 1s all cubic-bezier(0.77,0.2,0.05,1.0);
-} */
-
-
-
-
 .caseCon{
   width: 100%;
   height: 100vh;
@@ -351,19 +326,7 @@ body{
   margin-top: 10px;
   background: url('../assets/thumbBacka.png') repeat;
 }
-/* .thumbCon::after {
-  content: "";
-  background: url('../assets/thumbBack.png') repeat;
-  background-size: contain;
-  opacity: 0.1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-  height: 94px;
-} */
+
 .thumbTitle{
   font-size: 8px;
   font-family: lackFontR;
@@ -419,6 +382,7 @@ width: 100%;
   z-index: 8;
   left: 50%;
   top: 50%;
+  /* box-shadow: 5px 10px 58px #333; */
   transform: translate(-50%,-50%);
   /* transition: 1s all cubic-bezier(.85,0,.21,1); */
 
@@ -505,4 +469,35 @@ width: 100%;
 
 .changeColor{
   background: pink;
+}
+
+/* caseDetail page */
+.caseDetailCon{
+  min-height: 100vh;
+}
+.caseLogoCon{
+  height: 100vh;
+  background: green;
+}
+.caseBgCon{
+  width: 100vw;
+  background: red;
+  position: relative;
+}
+.caseLogoBg{
+  z-index: 10;
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.logobg{
+  z-index: 8px;
+  position: absolute;
+  background: blue;
+  width: 251px;
+  height: 363px;
 }

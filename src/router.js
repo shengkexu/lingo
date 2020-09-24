@@ -1,17 +1,15 @@
-// import { createApp } from 'vue'
-// import App from './App.vue'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import Home from './pages/home.vue'
 import Case from './pages/case.vue'
-import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {path: '/', redirect: '/home'},
   {path: '/home', component: Home},
-  {path: '/case', component: Case},
+  {path: '/case/:id', component: Case},
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 })
 
