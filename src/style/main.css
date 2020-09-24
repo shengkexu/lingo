@@ -26,6 +26,11 @@
   src: url('../assets/fonts/lack-Regular.otf')
 }
 
+@font-face{
+  font-family: 'oppoFontR';
+  src: url('../assets/fonts/OPPOSans-R.ttf')
+}
+
 
 
 body{
@@ -477,27 +482,152 @@ width: 100%;
 }
 .caseLogoCon{
   height: 100vh;
-  background: green;
+  /* background: green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.caseBgCon{
+.fakeLogo{
+  display: block;
+  height: 45px;
   width: 100vw;
-  background: red;
-  position: relative;
+  transition: 1s all cubic-bezier(.85,0,.21,1);
 }
-.caseLogoBg{
-  z-index: 10;
+.mainBattle{
+  position: relative;
+  width: 100vw;
+  height: 439px;
+  margin-top: 25px;
+  /* background: white; */
+  transition: 1s all cubic-bezier(.85,0,.21,1);
+}
+.caseTopLogo{
+  z-index: 15;
   position: absolute;
+  top: 15px;
+  width: 100vw;
+}
+.caseTopLogo img{
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  opacity: 0;
+  transition: 0.5s all ease;
+}
+.caseDLogoCon{
+  position: absolute;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
   width: 200px;
   height: 300px;
-  background: white;
+  z-index: 11;
+  transition: 1s all cubic-bezier(.85,0,.21,1);
+}
+.caseDLogo{
+  width: 48px;
+  height: auto;
+  transition: 1s all cubic-bezier(.85,0,.21,1);
+}
+.caseColor{
+  z-index: 10;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-.logobg{
-  z-index: 8px;
-  position: absolute;
-  background: blue;
+  background: #C70000;
   width: 251px;
   height: 363px;
+  transition: 0.5s all cubic-bezier(.85,0,.21,1);
+}
+.caseDescCon{
+  /* background: green; */
+  position: absolute;
+  width: 100vw;
+  top: 70vh;
+  z-index: 11;
+  height: 30vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFFFFF;
+}
+.caseDescL{
+  width: 180px;
+  height: 150px;
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.caseDescLTitle{
+  text-align: left;
+}
+.caseDescLTitle p{
+  margin-left: 36px;
+  margin-bottom: 8px;
+}
+.caseDescLTitleNum{
+  font-size: 10px;
+  font-family: lackFontR;
+}
+.caseDescLTitleB{
+  font-size: 18px;
+  font-family: aliFontM;
+}
+.caseDescLTitleDesc{
+  font-size: 8px;
+}
+.caseDescR{
+  width: 180px;
+  height: 150px;
+  /* background: blue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.caseDescR img{
+  width: 64px;
+  height: auto;
+  opacity: 0.2;
+}
+.caseDescLDesigner{
+  text-align: left;
+}
+.caseDescLDesigner p{
+  margin-left: 36px;
+  margin-bottom: 8px;
+}
+.caseDescLDesignerTitle{
+  font-size: 12px;
+  font-family: aliFontM;
+}
+.caseDescLDesignerName{
+  font-size: 10px;
+  font-family: oppoFontR;
+}
+.fakeBot1{
+  display: block;
+  width: 100vw;
+  height: 46px;
+  /* background: black; */
+  transition: 1s all cubic-bezier(.85,0,.21,1);
+}
+.fakeBot2{
+  display: block;
+  width: 100vw;
+  height: 94px;
+  margin-top: 10px;
+  /* background: yellow; */
+  transition: 1s all cubic-bezier(.85,0,.21,1);
 }
